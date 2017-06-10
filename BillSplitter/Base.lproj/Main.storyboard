@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,60 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWk-zn-P5H">
+                                <rect key="frame" x="16" y="20" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="MqW-h2-Ln0">
+                                <rect key="frame" x="14" y="80" width="347" height="31"/>
+                                <connections>
+                                    <action selector="numberOfPeopleSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="t5r-e4-gF3"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnE-KU-J9y">
+                                <rect key="frame" x="138" y="140" width="99" height="30"/>
+                                <state key="normal" title="Calculate Split"/>
+                                <connections>
+                                    <action selector="calculateSplitAmount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fu3-54-ny9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILc-Ze-NbR">
+                                <rect key="frame" x="16" y="200" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MqW-h2-Ln0" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8Uw-wU-kah"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fWk-zn-P5H" secondAttribute="trailing" id="IDJ-YS-CMb"/>
+                            <constraint firstItem="fWk-zn-P5H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J6U-7f-Mmq"/>
+                            <constraint firstItem="MqW-h2-Ln0" firstAttribute="top" secondItem="fWk-zn-P5H" secondAttribute="bottom" constant="30" id="KVK-Kz-jyU"/>
+                            <constraint firstItem="SnE-KU-J9y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NvS-Ut-cS5"/>
+                            <constraint firstItem="MqW-h2-Ln0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PcE-Ue-tMI"/>
+                            <constraint firstItem="ILc-Ze-NbR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U5G-P2-tGh"/>
+                            <constraint firstItem="SnE-KU-J9y" firstAttribute="top" secondItem="MqW-h2-Ln0" secondAttribute="bottom" constant="30" id="c4v-3N-Yv1"/>
+                            <constraint firstItem="ILc-Ze-NbR" firstAttribute="top" secondItem="SnE-KU-J9y" secondAttribute="bottom" constant="30" id="jGM-dH-cUC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ILc-Ze-NbR" secondAttribute="trailing" id="lWS-5U-Rvn"/>
+                            <constraint firstItem="fWk-zn-P5H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pfn-wL-pm7"/>
+                            <constraint firstItem="fWk-zn-P5H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vwE-Qx-tuh"/>
+                            <constraint firstItem="ILc-Ze-NbR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yc6-3k-NEL"/>
+                            <constraint firstItem="MqW-h2-Ln0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zwd-M3-xOp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="eachPaysLabel" destination="ILc-Ze-NbR" id="qRh-rP-Gmq"/>
+                        <outlet property="numberOfPeopleSlider" destination="MqW-h2-Ln0" id="bof-e7-zsO"/>
+                        <outlet property="totalAmountTextField" destination="fWk-zn-P5H" id="3GD-D4-4r6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
