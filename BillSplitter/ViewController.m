@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *totalAmountTextField;
 @property (weak, nonatomic) IBOutlet UISlider *numberOfPeopleSlider;
 @property (weak, nonatomic) IBOutlet UILabel *eachPaysLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfPeopleLabel;
 
 @end
 
@@ -50,7 +51,7 @@
 
 - (IBAction)numberOfPeopleSlider:(id)sender
 {
-    
+    self.numberOfPeopleLabel.text = [NSString stringWithFormat:@"Split between %.f people", self.numberOfPeopleSlider.value];
 }
 
 @end
