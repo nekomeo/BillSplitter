@@ -34,7 +34,7 @@
 - (IBAction)calculateSplitAmount:(id)sender
 {
     NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.totalAmountTextField.text];
-    NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.numberOfPeopleSlider.value];
+    NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithInt:self.numberOfPeopleSlider.value];
     NSDecimalNumber *eachPays = [billAmount decimalNumberByDividingBy:numberOfPeople];
     
     NSNumberFormatter *formatEachPays = [[NSNumberFormatter alloc] init];
@@ -42,7 +42,8 @@
     
     self.eachPaysLabel.text = [NSString stringWithFormat:@"Each pays: %@", [formatEachPays stringFromNumber:eachPays]];
     
-    NSLog(@"%@", eachPays);
+    NSLog(@"People %@", numberOfPeople);
+    NSLog(@"Each pays: $%@", eachPays);
 }
 
 - (IBAction)totalAmountTextField:(id)sender
@@ -51,7 +52,7 @@
 
 - (IBAction)numberOfPeopleSlider:(id)sender
 {
-    self.numberOfPeopleLabel.text = [NSString stringWithFormat:@"Split between %.f people", self.numberOfPeopleSlider.value];
+    self.numberOfPeopleLabel.text = [NSString stringWithFormat:@"Split between %d people", (int) self.numberOfPeopleSlider.value];
 }
 
 @end
