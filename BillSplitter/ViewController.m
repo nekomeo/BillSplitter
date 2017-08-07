@@ -23,6 +23,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.eachPaysLabel.text = @"";
+    
+    self.totalAmountTextField.delegate = self;
 }
 
 
@@ -42,17 +44,24 @@
     
     self.eachPaysLabel.text = [NSString stringWithFormat:@"Each pays: %@", [formatEachPays stringFromNumber:eachPays]];
     
-    NSLog(@"People %@", numberOfPeople);
-    NSLog(@"Each pays: $%@", eachPays);
-}
-
-- (IBAction)totalAmountTextField:(id)sender
-{
+//    NSLog(@"People %@", numberOfPeople);
+//    NSLog(@"Each pays: $%@", eachPays);
 }
 
 - (IBAction)numberOfPeopleSlider:(id)sender
 {
     self.numberOfPeopleLabel.text = [NSString stringWithFormat:@"Split between %d people", (int) self.numberOfPeopleSlider.value];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.totalAmountTextField resignFirstResponder];
+    return YES;
+}
+
+- (IBAction)screenWasTapped:(UITapGestureRecognizer *)sender
+{
+    [self.view endEditing:YES];
 }
 
 @end
